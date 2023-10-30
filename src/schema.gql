@@ -1,0 +1,49 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type UserPublic {
+  id: String!
+  name: String!
+}
+
+type CharacterPublic {
+  id: String!
+  name: String!
+  description: String!
+  imageUrl: String!
+  createdBy: UserPublic!
+}
+
+type AuthPublic {
+  user: UserPublic!
+  token: String!
+}
+
+type Query {
+  getAllCharacters: [CharacterPublic!]!
+  sayHello: String!
+}
+
+type Mutation {
+  createCharacter(input: CharacterInput!): CharacterPublic!
+  createUser(input: UserInput!): UserPublic!
+  login(input: AuthInput!): AuthPublic!
+}
+
+input CharacterInput {
+  name: String!
+  description: String!
+  imageUrl: String!
+  createdById: String!
+}
+
+input UserInput {
+  name: String!
+  password: String!
+}
+
+input AuthInput {
+  name: String!
+  password: String!
+}
